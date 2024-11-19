@@ -1,7 +1,7 @@
 import time
 from random import Random
 
-matrix_size = 200
+matrix_size = 5
 # matrix_a = [[3, 1, -4],
 #            [2, -3, 1],
 #            [5, -2, 0]]

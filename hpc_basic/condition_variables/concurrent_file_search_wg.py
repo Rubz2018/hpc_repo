@@ -1,7 +1,8 @@
 import os
 from os.path import isdir, join
 from threading import Lock, Thread
-
+import sys
+sys.path.append("/Users/dr.rubaiyatislam/Desktop/work/IUB_Teaching/HPC/Code_hpc/hpc_repo/hpc_basic")
 from condition_variables.wait_group import WaitGroup
 
 mutex = Lock()
@@ -26,7 +27,7 @@ def file_search(root, filename, wait_group):
 def main():
     wait_group = WaitGroup()
     wait_group.add(1)
-    t = Thread(target=file_search, args=(["c:/tools", "README.md", wait_group]))
+    t = Thread(target=file_search, args=(["/Users", "README.md", wait_group]))
     t.start()
     wait_group.wait()
     for m in matches:

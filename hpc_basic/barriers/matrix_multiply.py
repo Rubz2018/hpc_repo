@@ -1,3 +1,4 @@
+import sys
 import time
 from random import Random
 
@@ -36,3 +37,4 @@ for t in range(10):
     work_complete.wait()
 end = time.time()
 print("Done, time taken", end - start)
+sys.exit()
