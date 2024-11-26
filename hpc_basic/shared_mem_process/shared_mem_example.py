@@ -11,7 +11,7 @@ def print_array_contents(array):
 
 
 if __name__ == '__main__':
-    multiprocessing.set_start_method('spawn')
+    multiprocessing.set_start_method('spawn') # it can share array for providing access for multiple processes  
 #    arr = [1] * 10
     arr = multiprocessing.Array('i', [-1] * 10) # lock=true
     p = Process(target=print_array_contents, args=([arr]))
