@@ -31,9 +31,9 @@ if __name__ == '__main__':
     multiprocessing.set_start_method('spawn')
     work_start = Barrier(process_count + 1)
     work_complete = Barrier(process_count + 1)
-    matrix_a = multiprocessing.Array('i', [0] * (matrix_size * matrix_size), lock=False)
-    matrix_b = multiprocessing.Array('i', [0] * (matrix_size * matrix_size), lock=False)
-    result = multiprocessing.Array('i', [0] * (matrix_size * matrix_size), lock=False)
+    matrix_a = multiprocessing.Array('i', [0] * (matrix_size * matrix_size), lock=True)
+    matrix_b = multiprocessing.Array('i', [0] * (matrix_size * matrix_size), lock=True)
+    result = multiprocessing.Array('i', [0] * (matrix_size * matrix_size), lock=True)
     for p in range(process_count):
         Process(target=work_out_row, args=(p, matrix_a, matrix_b, result, work_start, work_complete)).start()
     start = time.time()

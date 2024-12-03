@@ -24,13 +24,13 @@ def find_area(points_queue):
 
 
 if __name__ == '__main__':
-    queue = Queue(maxsize=1000)
+    queue = Queue(maxsize=1)
     processes = []
     for i in range(TOTAL_PROCESSES):
         p = Process(target=find_area, args=(queue,))
         processes.append(p)
         p.start()
-    f = open("polygons.txt", "r")
+    f = open("./message_passing/polygons.txt", "r")
     lines = f.read().splitlines()
     start = time.time()
     for line in lines:
